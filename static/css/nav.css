@@ -1,0 +1,19 @@
+.nav {
+    height: 100px;
+    background-color: orange;
+    border-radius: 25px;
+    align-content: center;
+    position: fixed;
+    top: 20px;
+    left: 2%;
+    width: 93%;
+}
+
+.nav2 {
+    padding: 40px;
+    opacity: 1;
+}
+
+.navtd {
+    width: 33%;
+}

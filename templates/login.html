@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+</head>
+
+<body>
+
+    <div class="nav">
+        <div class="nav2">
+            <table>
+                <tr>
+                    <td class="navtd">
+                        <a href="{{ url_for('home') }}">HOME</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('profile') }}">YOUR PROFILE</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('login') }}">LOGIN</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('register') }}">REGISTER</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <center>
+
+        {% if error %}
+            <div class="error">
+                <p>Invalid Username or Password.</p>
+            </div>
+            <br><br>
+        {% endif %}
+
+        <h1>Login Page</h1>
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.username }}<br><br>
+            {{ form.password }}<br><br>
+            {{ form.submit }}
+        </form>
+
+    </center>
+
+</body>
+
+</html>

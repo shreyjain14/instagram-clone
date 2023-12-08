@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>UPLOAD</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css') }}">
+</head>
+
+<body>
+
+    <div class="nav">
+        <div class="nav2">
+            <table>
+                <tr>
+                    <td class="navtd">
+                        <a href="{{ url_for('home') }}">HOME</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('profile') }}">YOUR PROFILE</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('logout') }}">LOGOUT</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('search') }}">SEARCH</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <center>
+
+        <div class="dash">
+
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.photo }}<br><br>
+            {% for error in form.photo.errors %}
+                <span style="color: red;">{{ error }}</span>
+            <br><br>
+            {% endfor %}
+            {{ form.submit }}
+        </form>
+
+        </div>
+
+    </center>
+
+</body>
+
+</html>

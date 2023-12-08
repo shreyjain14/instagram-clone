@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{  user.username  }}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css') }}">
+</head>
+
+<body>
+
+    <div class="nav">
+        <div class="nav2">
+            <table>
+                <tr>
+                    <td class="navtd">
+                        <a href="{{ url_for('home') }}">HOME</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('profile') }}">YOUR PROFILE</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('logout') }}">LOGOUT</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('search') }}">SEARCH</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <center>
+        {% if error %}
+
+        <div class="error">
+
+            <p>ERROR: User doesn't exist</p>
+
+        </div>
+
+        {% endif %}
+
+        {% if user %}
+
+        <div class="dash">
+
+            <h1>Welcome {{  user.username  }},</h1>
+            <h2>{{  user.uploads_count  }} Posts, {{  user.following_count  }} Following,
+                {{  user.followers_count  }} Followers</h2>
+
+        </div>
+
+        <br><br>
+
+        {% for post in posts %}
+
+            <div class="post">
+                <img src="static/images/{{post}}" alt="Try Reloading">
+            </div>
+
+        {% endfor %}
+
+        {% endif %}
+    </center>
+
+</body>
+
+</html>

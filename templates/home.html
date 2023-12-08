@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Uploading</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/global.css') }}">
+</head>
+
+<body>
+
+    <div class="nav">
+        <div class="nav2">
+            <table>
+                <tr>
+                    <td class="navtd">
+                        <a href="{{ url_for('home') }}">HOME</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('profile') }}">YOUR PROFILE</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('login') }}">LOGIN</a>
+                    </td>
+                    <td class="navtd">
+                        <a href="{{ url_for('register') }}">REGISTER</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <center>
+
+        <div class="main">
+
+            <h2>Image Upload Website</h2>
+
+        </div>
+
+        <br><br>
+
+        {% for post in posts %}
+
+            <a href="{{  url_for('user_profile', username=post[1])  }}">
+
+                <div class="post">
+                    <img src="static/images/{{post[0]}}" alt="Try Reloading">
+                    <br>
+                    <label>{{post[1]}}</label>
+                </div>
+
+            </a>
+
+        {% endfor %}
+
+    </center>
+
+</body>
+
+</html>
