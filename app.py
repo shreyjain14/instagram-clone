@@ -22,7 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 # app.config['UPLOAD_FOLDER'] = os.path.join(basedir, 'static/images')
-app.config['UPLOAD_FOLDER'] = '../static/images'
+app.config['UPLOAD_FOLDER'] = '/app/static/images'
 
 db = SQLAlchemy(app)
 
