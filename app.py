@@ -162,7 +162,7 @@ class UploadForm(FlaskForm):
 def home():
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     posts = []
-    for file in files:
+    for file in files[::25]:
         user = Image.query.filter_by(filename=file).first()
         if user:
             username = user.uploader
@@ -250,7 +250,19 @@ def user_profile(username):
 def following_page(username):
     user = Following.query.filter_by(username=username).first()
     if user:
-        posts = user.get_images()
+        posts = user.get_following()
+        return render_template('loggedin/following.html', user=user, posts=posts)
+
+    else:
+        return render_template('loggedin/following.html', error=True)
+
+
+@app.route('/<username>/follower')
+@login_required
+def follower_page(username):
+    user = Following.query.filter_by(username=username).first()
+    if user:
+        posts = user.get_followers()
         return render_template('loggedin/following.html', user=user, posts=posts)
 
     else:

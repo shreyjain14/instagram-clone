@@ -48,9 +48,19 @@
 
         <div class="dash">
 
-            <h1>Welcome {{  user.username  }},</h1>
-            <h2>{{  user.uploads_count  }} Posts, {{  user.following_count  }} Following,
-                {{  user.followers_count  }} Followers</h2>
+            <h1>{{  user.username  }}</h1>
+
+            <a href="{{  url_for('user_profile', username=user.username)  }}">
+                <h2>{{  user.uploads_count  }} Posts</h2>
+            </a>
+
+            <a href="{{  url_for('following_page', username=user.username)  }}">
+                <h2>{{  user.following_count  }} Following</h2>
+            </a>
+
+            <a href="{{  url_for('follower_page', username=user.username)  }}">
+                <h2>{{  user.followers_count  }} Followers</h2>
+            </a>
 
         </div>
 
@@ -58,8 +68,10 @@
 
         {% for post in posts %}
 
-            <div class="post">
-                <img src="static/images/{{post}}" alt="Try Reloading">
+            <div class="followdiv">
+                <a href="{{  url_for('user_profile', username=post)  }}">
+                    <p>{{  post  }}</p>
+                </a>
             </div>
 
         {% endfor %}

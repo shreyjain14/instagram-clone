@@ -28,3 +28,11 @@ img {
     box-shadow: 0px 0px 5px grey;
     background-size: cover;
 }
+
+p {
+    color: white;
+}
+
+h2 {
+    color: black;
+}
