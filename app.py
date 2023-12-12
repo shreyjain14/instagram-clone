@@ -162,7 +162,7 @@ class UploadForm(FlaskForm):
 def home():
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     posts = []
-    for file in files[::25]:
+    for file in files[]:
         user = Image.query.filter_by(filename=file).first()
         if user:
             username = user.uploader
